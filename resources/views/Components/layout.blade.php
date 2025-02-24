@@ -26,6 +26,8 @@
                             </x-nav-link-link>
                             <x-nav-link-link href="/contact" id="contact" :active="request()->is('contact')">Contact
                             </x-nav-link-link>
+                            <x-nav-link-link href="/jobs" id="jobs" :active="request()->is('jobs')">Jobs
+                            </x-nav-link-link>
                         </div>
                     </div>
                 </div>
@@ -91,6 +93,8 @@
                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
                 <a href="/contact"
                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+                <a href="/jobs"
+                   class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Jobs</a>
             </div>
             <div class="border-t border-gray-700 pt-4 pb-3">
                 <div class="flex items-center px-5">
