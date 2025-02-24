@@ -3,6 +3,7 @@
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Models\Job;
 
 Route::get('/', function () {
     return view('home');
@@ -17,43 +18,11 @@ Route::get('/contact', function () {
 });
 
 Route::get('/jobs', function () {
-    return view('jobs', [
-        'jobs' => [
-            [
-                'id' => 1,
-                'title' => 'Director',
-                'salary' => '$50000'
-            ], [
-                'id' => 2,
-                'title' => 'Developer',
-                'salary' => '$30000'
-            ], [
-                'id' => 3,
-                'title' => 'Manager',
-                'salary' => '$5555'
-            ],
-        ]
-    ]);
+    return view('jobs', ["jobs" => Job::all()]);
 });
 
 Route::get('/jobs/{jobId}', function ($jobId) {
-    $jobs = [
-        [
-            'id' => 1,
-            'title' => 'Director',
-            'salary' => '$50000'
-        ], [
-            'id' => 2,
-            'title' => 'Developer',
-            'salary' => '$30000'
-        ], [
-            'id' => 3,
-            'title' => 'Manager',
-            'salary' => '$5555'
-        ],
-    ];
-
-    $job = Arr::first($jobs, fn($job) => $job['id'] == $jobId);
+    $job = Job::find($jobId);
     return view('job', ['job' => $job]);
 });
 
