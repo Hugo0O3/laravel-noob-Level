@@ -70,7 +70,7 @@
             </section>
         </div>
     </form>
-    <form action="post" action="/jobs/{{$job->id}}" id="delete-form" class="hidden">
+    <form method="post" action="/jobs/{{$job->id}}" id="delete-form" class="hidden">
         @csrf
         @method('delete')
     </form>
